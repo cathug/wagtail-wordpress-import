@@ -30,7 +30,7 @@ class ItemsCache:
 
         cache = getattr(self, key)
         item = copy.deepcopy(item)
-        if "wp:postmeta" in item:  # wp:postmeta is not needed in the cache
+        if "wp:postmeta" in item and key != 'wpdmpro':  # wp:postmeta is not needed in the cache
             del item["wp:postmeta"]
         if item not in cache:
             cache.append(item)
